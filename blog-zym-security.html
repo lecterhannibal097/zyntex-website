@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>How We Keep Your ZYM Balance Safe — Zyntex Blog</title>
+  <meta name="description" content="A deep dive into Zyntex security: OTP email verification, Firebase security rules, KYC verification, balance protection, and anti-fraud systems."/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3214178529338123" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0B0B0D;--bg2:#141417;--bg3:#1A1A1E;--gold:#D4AF37;--gold-light:#F2D27D;--gold-dim:rgba(212,175,55,0.12);--text:#FFFFFF;--muted:#B3B3B3;--dim:#7A7A7A;--border:#1E1E22;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.8;}
+    a{color:var(--gold);text-decoration:none;}a:hover{text-decoration:underline;}
+    .navbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+    .nav-logo{font-size:20px;font-weight:900;letter-spacing:3px;color:var(--gold);text-decoration:none;}.nav-logo span{color:var(--gold-light);}
+    .nav-back{font-size:14px;color:var(--muted);}
+    .hero{background:linear-gradient(135deg,var(--bg2),var(--bg3));border-bottom:1px solid var(--border);padding:64px 24px 56px;text-align:center;}
+    .post-label{display:inline-block;background:var(--gold-dim);border:1px solid rgba(212,175,55,0.3);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:100px;margin-bottom:18px;}
+    .hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;line-height:1.25;max-width:720px;margin:0 auto 16px;}
+    .hero h1 span{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .post-meta{display:flex;gap:20px;justify-content:center;font-size:13px;color:var(--dim);flex-wrap:wrap;margin-top:18px;}
+    .article{max-width:760px;margin:0 auto;padding:60px 24px 100px;}
+    h2{font-size:22px;font-weight:700;color:var(--text);margin:40px 0 14px;}
+    h3{font-size:18px;font-weight:600;color:var(--gold);margin:28px 0 10px;}
+    p{font-size:15px;color:var(--muted);margin-bottom:18px;line-height:1.85;}
+    ul,ol{padding-left:24px;margin-bottom:18px;}
+    li{font-size:15px;color:var(--muted);margin-bottom:8px;line-height:1.7;}
+    .security-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:16px 0;display:flex;gap:16px;align-items:flex-start;}
+    .sec-icon{font-size:28px;flex-shrink:0;margin-top:2px;}
+    .sec-body h3{margin:0 0 6px;font-size:15px;font-weight:700;color:var(--text);}
+    .sec-body p{margin:0;font-size:13px;}
+    .highlight-box{background:var(--bg2);border:1px solid rgba(212,175,55,0.2);border-left:3px solid var(--gold);border-radius:10px;padding:20px 24px;margin:28px 0;}
+    .highlight-box p{margin:0;color:var(--text);}
+    .cta{background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(212,175,55,0.04));border:1px solid rgba(212,175,55,0.25);border-radius:16px;padding:36px;text-align:center;margin-top:48px;}
+    .cta h3{font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px;}
+    .cta p{color:var(--muted);font-size:14px;margin-bottom:20px;}
+    .cta a{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0B0B0D;font-weight:700;font-size:15px;padding:13px 32px;border-radius:12px;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--dim);font-size:14px;margin-bottom:32px;}
+    footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-size:13px;color:var(--dim);}
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">ZYN<span>TEX</span></a>
+  <a href="blog.html" class="nav-back">← Blog</a>
+</nav>
+<div class="hero">
+  <div class="post-label">Security</div>
+  <h1>How We Keep Your <span>ZYM Balance Safe</span></h1>
+  <div class="post-meta"><span>📅 January 2025</span><span>⏱ 4 min read</span><span>✍️ Zyntex Team</span></div>
+</div>
+<div class="article">
+  <a href="blog.html" class="back-link">← Back to Blog</a>
+  <p>Security is not an afterthought at Zyntex — it's a foundational principle. When you mine ZYM tokens, your balance represents real value that you've earned through time and effort. We take that responsibility seriously. Here's an in-depth look at the security systems we've built to protect your account and your earnings.</p>
+
+  <h2>Account Security</h2>
+
+  <div class="security-card">
+    <div class="sec-icon">📧</div>
+    <div class="sec-body"><h3>Email Verification</h3><p>Every new account must verify their email address before accessing the app. Unverified accounts cannot mine or earn rewards, preventing bot accounts from flooding the network.</p></div>
+  </div>
+  <div class="security-card">
+    <div class="sec-icon">🔢</div>
+    <div class="sec-body"><h3>OTP Authentication</h3><p>Every login requires a one-time password sent to your registered email. This means even if someone knows your password, they cannot access your account without also controlling your email.</p></div>
+  </div>
+  <div class="security-card">
+    <div class="sec-icon">🔑</div>
+    <div class="sec-body"><h3>Private Key Backup</h3><p>Users can generate and securely back up a private key for their account. This gives you an additional recovery method that's entirely under your control.</p></div>
+  </div>
+  <div class="security-card">
+    <div class="sec-icon">📍</div>
+    <div class="sec-body"><h3>Login Activity Monitoring</h3><p>Your profile shows a full history of login activity including device type, location, and timestamp. You can review this anytime and flag suspicious access.</p></div>
+  </div>
+
+  <h2>Balance Protection</h2>
+  <p>Your ZYM balance is stored in Firebase Firestore — Google's enterprise-grade cloud database. But storage alone isn't enough. We've implemented hardened security rules that protect your balance at the database level:</p>
+
+  <ul>
+    <li><strong>Balance can only increase through legitimate mining</strong> — direct manipulation attempts are rejected at the database rule level.</li>
+    <li><strong>Mining rate caps</strong> are enforced server-side — no client can claim an impossibly high mining rate.</li>
+    <li><strong>Transaction records</strong> are immutable once created — every ZYM movement is permanently logged.</li>
+    <li><strong>Withdrawal requests</strong> are reviewed before processing — no automatic outflows without verification.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p>🛡️ <strong>Important:</strong> Zyntex will never ask for your existing cryptocurrency wallet's private keys. If anyone claiming to be Zyntex asks for this, it is a scam. Your ZYM balance exists entirely within the Zyntex system until you choose to release it through our official process.</p>
+  </div>
+
+  <h2>KYC Verification</h2>
+  <p>Before any ZYM can be released to an external wallet, users must complete our Know Your Customer (KYC) verification process. KYC serves multiple purposes:</p>
+  <ul>
+    <li>Prevents one person from controlling multiple accounts</li>
+    <li>Meets regulatory requirements for financial services</li>
+    <li>Protects the network from fraudulent activity</li>
+    <li>Ensures ZYM tokens are released to verified, legitimate owners</li>
+  </ul>
+  <p>KYC is a standard requirement across legitimate cryptocurrency platforms. It protects both individual users and the integrity of the entire network.</p>
+
+  <h2>Anti-Fraud Systems</h2>
+  <p>We have multiple systems in place to detect and prevent fraudulent activity on the Zyntex network:</p>
+  <ul>
+    <li>Automated detection of suspicious mining patterns</li>
+    <li>Rate limiting on all sensitive operations</li>
+    <li>Firestore security rules that validate every write operation</li>
+    <li>Admin monitoring tools for flagging anomalous accounts</li>
+  </ul>
+
+  <h2>What You Can Do to Stay Secure</h2>
+  <ul>
+    <li>Use a strong, unique password for your email account.</li>
+    <li>Never share your OTP code with anyone — Zyntex staff will never ask for it.</li>
+    <li>Back up your private key and store it in a safe place.</li>
+    <li>Regularly check your login activity for any unrecognized sessions.</li>
+    <li>Only download Zyntex from the official Google Play Store listing.</li>
+  </ul>
+
+  <p>Your security is a shared responsibility. We provide the infrastructure; you protect your credentials. Together, we keep the Zyntex network safe for everyone.</p>
+
+  <div class="cta">
+    <h3>Mine With Confidence</h3>
+    <p>Your ZYM balance is protected by enterprise-grade security. Start mining today.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.zyntex.app" target="_blank">Download on Google Play</a>
+  </div>
+</div>
+<footer><p>© 2025 Zyntex. All rights reserved. · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p></footer>
+</body>
+</html>
