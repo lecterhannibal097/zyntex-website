@@ -2,182 +2,186 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>ZYM Token: Roadmap Update & What's Coming in 2025 — Zyntex Blog</title>
-  <meta name="description" content="The full Zyntex roadmap for 2025: exchange listings, ecosystem integrations, Security Circle, network phases, KYC, and what's planned for the ZYM token."/>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3214178529338123" crossorigin="anonymous"></script>
+  <meta name="description" content="Explore the full Zyntex roadmap for 2025 — exchange listings, ecosystem integrations, new mining mechanics, and the future of the ZYM token economy."/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3214178529338123"
+     crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
-    :root{--bg:#0B0B0D;--bg2:#141417;--bg3:#1A1A1E;--gold:#D4AF37;--gold-light:#F2D27D;--gold-dim:rgba(212,175,55,0.12);--text:#FFFFFF;--muted:#B3B3B3;--dim:#7A7A7A;--border:#1E1E22;}
+    :root{--bg:#0B0B0D;--bg2:#141417;--gold:#D4AF37;--gold-light:#F2D27D;--text:#FFFFFF;--muted:#B3B3B3;--dim:#7A7A7A;--border:#1E1E22;}
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.8;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7;}
     a{color:var(--gold);text-decoration:none;}
     a:hover{text-decoration:underline;}
     .navbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
-    .nav-logo{font-size:20px;font-weight:900;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+    .nav-logo{font-size:20px;font-weight:900;letter-spacing:3px;color:var(--gold);}
     .nav-logo span{color:var(--gold-light);}
     .nav-back{font-size:14px;color:var(--muted);}
-    .hero{background:linear-gradient(135deg,var(--bg2),var(--bg3));border-bottom:1px solid var(--border);padding:64px 24px 56px;text-align:center;}
-    .post-label{display:inline-block;background:var(--gold-dim);border:1px solid rgba(212,175,55,0.3);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:100px;margin-bottom:18px;}
-    .hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;line-height:1.25;max-width:720px;margin:0 auto 16px;}
-    .hero h1 span{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-    .post-meta{display:flex;gap:20px;justify-content:center;font-size:13px;color:var(--dim);flex-wrap:wrap;margin-top:18px;}
-    .article{max-width:760px;margin:0 auto;padding:60px 24px 100px;}
-    h2{font-size:22px;font-weight:700;color:var(--text);margin:40px 0 14px;}
-    h3{font-size:18px;font-weight:600;color:var(--gold);margin:28px 0 10px;}
-    p{font-size:15px;color:var(--muted);margin-bottom:18px;line-height:1.85;}
-    ul,ol{padding-left:24px;margin-bottom:18px;}
-    li{font-size:15px;color:var(--muted);margin-bottom:8px;line-height:1.7;}
-    .roadmap-item{display:flex;gap:20px;margin-bottom:32px;align-items:flex-start;}
-    .roadmap-phase{background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.05));border:1px solid rgba(212,175,55,0.3);color:var(--gold);font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap;margin-top:3px;}
-    .roadmap-body h3{margin:0 0 8px;font-size:17px;font-weight:700;color:var(--text);}
-    .roadmap-body p{margin:0;font-size:14px;}
-    .status-done{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#4ade80;font-size:11px;font-weight:600;padding:2px 10px;border-radius:100px;margin-left:8px;}
-    .status-active{background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:var(--gold);font-size:11px;font-weight:600;padding:2px 10px;border-radius:100px;margin-left:8px;}
-    .status-soon{background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);color:#818cf8;font-size:11px;font-weight:600;padding:2px 10px;border-radius:100px;margin-left:8px;}
-    .highlight-box{background:var(--bg2);border:1px solid rgba(212,175,55,0.2);border-left:3px solid var(--gold);border-radius:10px;padding:20px 24px;margin:28px 0;}
-    .highlight-box p{margin:0;color:var(--text);}
-    .cta{background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(212,175,55,0.04));border:1px solid rgba(212,175,55,0.25);border-radius:16px;padding:36px;text-align:center;margin-top:48px;}
-    .cta h3{font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px;}
-    .cta p{color:var(--muted);font-size:14px;margin-bottom:20px;}
-    .cta a{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0B0B0D;font-weight:700;font-size:15px;padding:13px 32px;border-radius:12px;}
-    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--dim);font-size:14px;margin-bottom:32px;}
-    .back-link:hover{color:var(--gold);}
-    footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-size:13px;color:var(--dim);}
+    .nav-back:hover{color:var(--text);}
+    .content{max-width:760px;margin:0 auto;padding:60px 24px 100px;}
+    .content h1{font-size:36px;font-weight:800;margin-bottom:8px;line-height:1.2;}
+    .post-meta{display:flex;gap:16px;font-size:13px;color:var(--dim);margin-bottom:40px;flex-wrap:wrap;}
+    .content h2{font-size:22px;font-weight:700;color:var(--gold);margin:36px 0 14px;}
+    .content h3{font-size:18px;font-weight:600;color:var(--text);margin:28px 0 10px;}
+    .content p{font-size:15px;color:var(--muted);margin-bottom:16px;}
+    .content ul,.content ol{margin:0 0 16px 20px;}
+    .content li{font-size:15px;color:var(--muted);margin-bottom:8px;}
+    .content strong{color:var(--text);}
+    .highlight-box{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:8px;padding:20px 24px;margin:24px 0;}
+    .highlight-box p{margin:0;font-size:14px;}
+    .divider{height:1px;background:var(--border);margin:40px 0;}
+    .back-to-blog{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--gold);font-weight:600;margin-top:20px;}
+    .related{margin-top:40px;}
+    .related h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:16px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color 0.2s;}
+    .related-card:hover{border-color:rgba(212,175,55,0.4);}
+    .related-card h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px;}
+    .related-card p{font-size:12px;color:var(--dim);margin:0;}
   </style>
 </head>
 <body>
 <nav class="navbar">
   <a href="index.html" class="nav-logo" style="text-decoration:none;">ZYN<span>TEX</span></a>
-  <a href="blog.html" class="nav-back">← Blog</a>
+  <a href="blog.html" class="nav-back">← Back to Blog</a>
 </nav>
-
-<div class="hero">
-  <div class="post-label">Announcements</div>
-  <h1>ZYM Token: <span>Roadmap Update</span> & What's Coming in 2025</h1>
+<div class="content">
+  <h1>ZYM Token: Roadmap Update & What's Coming in 2025</h1>
   <div class="post-meta">
-    <span>📅 February 2025</span>
-    <span>⏱ 5 min read</span>
-    <span>✍️ Zyntex Team</span>
-  </div>
-</div>
-
-<div class="article">
-  <a href="blog.html" class="back-link">← Back to Blog</a>
-
-  <p>2025 is shaping up to be the most important year in Zyntex's development. We've been working hard on building a robust mining ecosystem, and today we're sharing a full update on what we've launched, what's in progress, and what's coming for ZYM token holders and miners.</p>
-
-  <p>This roadmap reflects our commitment to building a sustainable, utility-driven crypto ecosystem — one that rewards early adopters and grows stronger with every new member who joins.</p>
-
-  <h2>What We've Already Built</h2>
-
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 1</div>
-    <div class="roadmap-body">
-      <h3>Core Mining Platform <span class="status-done">✓ Live</span></h3>
-      <p>The foundation of Zyntex is live on Android. Users can sign up, verify their email, start mining sessions, and earn ZYM tokens daily. The mining engine runs securely on our servers while your device simply participates.</p>
-    </div>
+    <span>February 2025</span>
+    <span>5 min read</span>
+    <span>Announcements</span>
   </div>
 
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 1</div>
-    <div class="roadmap-body">
-      <h3>Referral & Team Mining <span class="status-done">✓ Live</span></h3>
-      <p>The referral system is fully operational. Every user gets a unique referral code. Active referrals join your team and boost your mining rate, creating a community-powered growth engine.</p>
-    </div>
-  </div>
+  <p>When we first launched Zyntex, our vision was straightforward: make cryptocurrency mining accessible to anyone with a smartphone. Since then, our community has grown at a pace that exceeded even our most optimistic projections. With tens of thousands of active miners already accumulating ZYM tokens daily, the question everyone is asking is the same: <strong>what happens next?</strong></p>
 
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 1</div>
-    <div class="roadmap-body">
-      <h3>Daily Rewards & Tasks <span class="status-done">✓ Live</span></h3>
-      <p>Daily login rewards, streak bonuses, social follow tasks, and ad-watching rewards are all live. Users who engage with Zyntex daily earn significantly more than passive miners.</p>
-    </div>
-  </div>
+  <p>Today we are pulling back the curtain on the full 2025 roadmap. This is not a vague list of aspirations. Every milestone below has dedicated engineering resources, a timeline, and internal success metrics. We want you to hold us accountable, so let us walk through each quarter in detail.</p>
 
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 2</div>
-    <div class="roadmap-body">
-      <h3>Security Circle <span class="status-done">✓ Live</span></h3>
-      <p>The Security Circle — a trust network of up to 5 members — is now live. Each circle member adds a +5% mining boost, giving a maximum +25% bonus for a full circle. This feature also strengthens account security and community trust.</p>
-    </div>
-  </div>
+  <h2>Q1 2025: Strengthening the Foundation</h2>
 
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 2</div>
-    <div class="roadmap-body">
-      <h3>Network Phase & Halving System <span class="status-done">✓ Live</span></h3>
-      <p>Zyntex now operates on an 8-phase halving model. Each phase is triggered by network growth milestones. The current Genesis phase offers the highest mining rate. As the network grows, rates adjust to reflect increasing scarcity — rewarding early miners permanently.</p>
-    </div>
-  </div>
+  <p>The first quarter of 2025 is all about infrastructure hardening. Before we introduce new features or pursue exchange listings, we need to make sure the platform can handle ten times its current user base without performance degradation.</p>
 
-  <h2>What's Coming Next</h2>
+  <h3>Backend Performance Overhaul</h3>
+  <p>Our engineering team is migrating critical mining computation logic to a more efficient serverless architecture. This change alone is expected to reduce balance-update latency by roughly 40 percent, meaning your mined ZYM will appear in your wallet faster and more reliably. We are also implementing geographic load balancing so that miners in Southeast Asia, Africa, and South America experience the same responsiveness as users closer to our primary data centers.</p>
 
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 3</div>
-    <div class="roadmap-body">
-      <h3>Achievement System <span class="status-soon">Coming Soon</span></h3>
-      <p>A full achievement system with badges, milestones, and mining rate bonuses. Complete challenges like "Mine for 30 consecutive days" or "Refer 10 active users" to unlock permanent boosts and exclusive badges that display on your profile.</p>
-    </div>
-  </div>
-
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 4</div>
-    <div class="roadmap-body">
-      <h3>P2P Token Transfers <span class="status-soon">Coming Soon</span></h3>
-      <p>Send ZYM tokens directly to other Zyntex users within the app. This will enable peer-to-peer value exchange within our ecosystem — a key step toward ZYM becoming a genuinely usable currency.</p>
-    </div>
-  </div>
-
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 5</div>
-    <div class="roadmap-body">
-      <h3>Community Feed <span class="status-soon">Planned</span></h3>
-      <p>A social layer within the Zyntex app where miners can share updates, celebrate milestones, and connect with the community. Community engagement will unlock additional earning opportunities.</p>
-    </div>
-  </div>
-
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 6</div>
-    <div class="roadmap-body">
-      <h3>Enhanced KYC & Wallet Release <span class="status-soon">Planned</span></h3>
-      <p>Full KYC verification will allow users to release their mined ZYM to external wallets. We're working with compliance partners to ensure a smooth, secure verification process that meets international standards.</p>
-    </div>
-  </div>
-
-  <div class="roadmap-item">
-    <div class="roadmap-phase">Phase 7</div>
-    <div class="roadmap-body">
-      <h3>Exchange Listing & Marketplace <span class="status-soon">Planned</span></h3>
-      <p>ZYM token listing on cryptocurrency exchanges is a long-term goal that depends on network size and regulatory clarity. We're also planning a marketplace where ZYM can be used to purchase goods and services within the Zyntex ecosystem.</p>
-    </div>
-  </div>
-
-  <h2>Our Commitment to Early Miners</h2>
+  <h3>Enhanced KYC Pipeline</h3>
+  <p>Exchange listings require that we have a robust Know Your Customer process. In Q1 we are rolling out an upgraded identity verification flow that supports government-issued IDs from over 120 countries. The new system will use automated document scanning and liveness checks, cutting average verification time from several days down to under thirty minutes for most applicants.</p>
 
   <div class="highlight-box">
-    <p>🏆 <strong>Early miners will always have an advantage.</strong> The ZYM you mine today — at today's rate — is yours permanently. As rates decrease with each phase, your early accumulation becomes increasingly valuable relative to later miners. This is by design and will never change.</p>
+    <p><strong>Why KYC matters:</strong> Completing your identity verification early puts you at the front of the line when withdrawals open. Users who verify before the Q2 deadline will also receive an exclusive early-adopter badge on their profile.</p>
   </div>
 
-  <p>We believe in building a fair system where those who take the earliest risk and show the most commitment are rewarded the most. The halving mechanism is our way of honoring that commitment mathematically and permanently.</p>
+  <h3>Security Audit</h3>
+  <p>We have engaged an independent third-party security firm to perform a comprehensive audit of our smart contracts, Firebase security rules, and backend APIs. The results of this audit will be published in a transparency report available to all community members.</p>
 
-  <h2>A Note on Token Value</h2>
-  <p>We won't make promises about ZYM's future market price — no responsible project does. What we can tell you is that we're building real utility into the token: P2P transfers, marketplace purchases, and ecosystem integrations. Token value follows utility and adoption, and we're focused on building both.</p>
+  <h2>Q2 2025: Exchange Listings & Wallet Integration</h2>
 
-  <p>The best thing you can do right now is mine as much ZYM as possible at today's rates, grow your team, and fill your Security Circle. When utility and exchange listings arrive, you'll want to have accumulated as many tokens as possible.</p>
+  <p>This is the quarter the community has been waiting for. Our goal is to have ZYM listed on at least two reputable centralized exchanges and one major decentralized exchange by the end of June.</p>
 
-  <p>Thank you for being part of the Zyntex community. The journey is just beginning.</p>
+  <h3>Centralized Exchange Strategy</h3>
+  <p>We are currently in discussions with multiple Tier-2 and Tier-3 exchanges. Our listing strategy prioritizes platforms with strong user bases in our key markets: India, Nigeria, Indonesia, Philippines, and Brazil. Rather than chasing a single Tier-1 listing at enormous cost, we believe multiple accessible listings give our miners better liquidity options from day one.</p>
 
-  <div class="cta">
-    <h3>Be Part of the Journey</h3>
-    <p>Mine ZYM today and be positioned for what's ahead in 2025.</p>
-    <a href="https://play.google.com/store/apps/details?id=com.zyntex.app" target="_blank">Download on Google Play</a>
+  <h3>Decentralized Exchange Liquidity</h3>
+  <p>Simultaneously, we will deploy a ZYM liquidity pool on a leading decentralized exchange. A portion of the project's token allocation will be used to seed initial liquidity, ensuring that early traders have a smooth experience with minimal slippage. Community members who contribute to the liquidity pool will earn additional ZYM incentives.</p>
+
+  <h3>In-App Wallet Upgrade</h3>
+  <p>The current in-app balance display will evolve into a fully functional wallet with transaction history, send and receive capabilities, and QR code support. You will be able to transfer ZYM to other Zyntex users instantly and at zero cost, or withdraw to an external wallet once exchange integration is live.</p>
+
+  <div class="highlight-box">
+    <p><strong>Early miner advantage:</strong> Mining rates are at their highest right now. As total network participants increase, the per-user mining rate decreases gradually through our halving schedule. Mining today means accumulating ZYM at the most favorable rate the platform will ever offer.</p>
   </div>
+
+  <h2>Q3 2025: Ecosystem Expansion</h2>
+
+  <p>With trading live and the wallet fully operational, Q3 shifts our focus to utility. A token is only as valuable as the things you can do with it.</p>
+
+  <h3>ZYM Marketplace</h3>
+  <p>We are building an in-app marketplace where users can spend ZYM on digital goods, premium features, and partner offers. Early partnerships are being explored with mobile data providers, gaming platforms, and digital content creators. The marketplace will operate on a commission model that feeds back into the ZYM ecosystem, creating sustainable demand for the token.</p>
+
+  <h3>Staking Program</h3>
+  <p>For miners who want to hold long-term, we will introduce a staking mechanism. By locking your ZYM for a fixed period, you will earn additional tokens at a rate proportional to the lock duration. Staking not only rewards patient holders but also reduces circulating supply, which benefits all token holders.</p>
+
+  <ul>
+    <li><strong>30-day lock:</strong> Base staking reward rate</li>
+    <li><strong>90-day lock:</strong> 1.5x reward multiplier</li>
+    <li><strong>180-day lock:</strong> 2.5x reward multiplier</li>
+  </ul>
+
+  <h3>API for Developers</h3>
+  <p>We will release a public API that allows third-party developers to integrate ZYM payments into their own applications. This opens the door for community-built tools, bots, and services that extend the Zyntex ecosystem in ways we cannot predict. A developer grant program will fund the most promising projects.</p>
+
+  <h2>Q4 2025: Governance & Community Ownership</h2>
+
+  <p>The final quarter of the year marks our transition toward decentralized governance. We believe the community that mines ZYM should have a say in how the platform evolves.</p>
+
+  <h3>DAO Formation</h3>
+  <p>We will launch a Decentralized Autonomous Organization where ZYM holders can propose and vote on platform changes. Proposals might include adjustments to mining rates, new feature priorities, partnership approvals, or community fund allocations. Voting power will be proportional to the amount of ZYM staked in the governance contract.</p>
+
+  <h3>Community Treasury</h3>
+  <p>A dedicated community treasury, funded by a percentage of marketplace commissions and staking fees, will be controlled entirely by DAO votes. This treasury can fund marketing campaigns, developer grants, charity initiatives, or whatever the community decides is most valuable.</p>
+
+  <h3>Advanced Mining Mechanics</h3>
+  <p>Based on community feedback and governance proposals, we plan to introduce new mining mechanics in Q4. Concepts under consideration include team mining challenges, seasonal mining events with limited-edition NFT rewards, and a prestige system that unlocks cosmetic and functional upgrades for long-term miners.</p>
+
+  <div class="highlight-box">
+    <p><strong>Your voice matters:</strong> We actively monitor community feedback across our Telegram group, Discord server, and social channels. Many features on this roadmap originated as community suggestions. Keep sharing your ideas because they genuinely shape the direction of Zyntex.</p>
+  </div>
+
+  <h2>Transparency and Accountability</h2>
+
+  <p>Roadmaps are only useful if the team behind them follows through. To ensure accountability, we are committing to the following practices throughout 2025:</p>
+
+  <ol>
+    <li><strong>Monthly progress reports</strong> published on this blog and distributed via email to all registered users</li>
+    <li><strong>Quarterly AMAs</strong> (Ask Me Anything) hosted on Telegram and Discord where the founding team answers community questions live</li>
+    <li><strong>Open development tracker</strong> where you can see the status of every roadmap item in real time</li>
+    <li><strong>Bug bounty program</strong> launching in Q1 to incentivize security researchers to help us find and fix vulnerabilities</li>
+  </ol>
+
+  <p>We understand that trust in the crypto space is earned, not given. Every decision we make is guided by a simple principle: <strong>build something genuinely useful, and the value will follow.</strong></p>
+
+  <h2>How You Can Prepare</h2>
+
+  <p>While we build, there are concrete steps you can take right now to maximize your position for what is coming:</p>
+
+  <ul>
+    <li><strong>Complete KYC early.</strong> Verified users will have priority access to withdrawals and exchange features.</li>
+    <li><strong>Mine consistently.</strong> Daily mining streaks earn multiplier bonuses that compound over time.</li>
+    <li><strong>Build your referral network.</strong> Referrals boost your mining rate and your team's collective earning power.</li>
+    <li><strong>Stay informed.</strong> Follow our social channels and check this blog regularly for updates and announcements.</li>
+  </ul>
+
+  <p>The road ahead is ambitious, but the foundation is solid. We have the technology, the team, and most importantly, a community that believes in what we are building. 2025 is going to be a defining year for Zyntex and for everyone mining ZYM today.</p>
+
+  <p>Thank you for being part of this journey. Let us build the future of mobile mining together.</p>
+
+  <div class="divider"></div>
+
+  <div class="related">
+    <h3>Related Articles</h3>
+    <div class="related-grid">
+      <a href="blog-zyntex-launch.html" class="related-card" style="text-decoration:none;">
+        <h4>Zyntex is Now Live — Join the Early Access Community</h4>
+        <p>Learn how to get started and claim your early miner advantage.</p>
+      </a>
+      <a href="blog-maximize-mining-rate.html" class="related-card" style="text-decoration:none;">
+        <h4>How to Maximize Your ZYM Mining Rate</h4>
+        <p>Strategies to boost your daily earnings before exchange listings go live.</p>
+      </a>
+      <a href="blog-referral-program.html" class="related-card" style="text-decoration:none;">
+        <h4>Referral Program Deep Dive</h4>
+        <p>Understand how your network multiplies your mining power.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <a href="blog.html" class="back-to-blog">← Back to all articles</a>
 </div>
-
-<footer>
-  <p>© 2025 Zyntex. All rights reserved. · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
-</footer>
 </body>
 </html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Zyntex Network</title>
+  <meta name="description" content="Start mining ZYM, the native currency of Zyntex Network, for free today." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0B0B0D;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .logo { width: 80px; height: 80px; border-radius: 20px; margin-bottom: 24px; }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .sub { color: #B3B3B3; font-size: 15px; margin-bottom: 32px; line-height: 1.5; }
+    .code-box {
+      background: #141417;
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 16px;
+      padding: 20px 32px;
+      margin-bottom: 32px;
+    }
+    .code-label { color: #B3B3B3; font-size: 13px; margin-bottom: 8px; }
+    .code { color: #D4AF37; font-size: 28px; font-weight: 700; font-family: monospace; letter-spacing: 3px; }
+    .btn {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      margin-bottom: 12px;
+    }
+    .btn-primary { background: #D4AF37; color: #0B0B0D; }
+    .btn-secondary { background: #141417; color: #fff; border: 1px solid rgba(212,175,55,0.2); }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid rgba(212,175,55,0.2);
+      border-top-color: #D4AF37;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #status { color: #B3B3B3; font-size: 14px; margin-bottom: 24px; }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+      max-width: 340px;
+      width: 100%;
+    }
+    .feature {
+      background: #141417;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13px;
+      color: #B3B3B3;
+    }
+    .feature span { display: block; color: #D4AF37; font-size: 20px; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <img src="/app-icon-512.png" alt="Zyntex" class="logo" />
+  <h1>You're Invited!</h1>
+  <p class="sub">Join Zyntex Network and start mining ZYM,<br>our native currency, for free today.</p>
+
+  <div class="code-box" id="codeBox" style="display:none">
+    <div class="code-label">Your invitation code</div>
+    <div class="code" id="codeDisplay"></div>
+  </div>
+
+  <div class="spinner" id="spinner"></div>
+  <div id="status">Opening Zyntex app…</div>
+
+  <a id="playstoreBtn" class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.zyntex.app" style="display:none">
+    Download on Google Play
+  </a>
+  <button class="btn btn-secondary" id="copyBtn" style="display:none" onclick="copyCode()">
+    Copy Invitation Code
+  </button>
+
+  <div class="features">
+    <div class="feature"><span>⛏️</span>Free Mining</div>
+    <div class="feature"><span>💰</span>Earn ZYM Daily</div>
+    <div class="feature"><span>👥</span>Team Boost</div>
+    <div class="feature"><span>🎁</span>Referral Bonus</div>
+  </div>
+
+  <script>
+    var referralCode = '';
+
+    function getCode() {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code') || params.get('ref') || '';
+      if (!code && window.location.hash) code = window.location.hash.slice(1);
+      return code.toUpperCase();
+    }
+
+    function copyCode() {
+      if (!referralCode) return;
+      navigator.clipboard && navigator.clipboard.writeText(referralCode).catch(function(){});
+      document.getElementById('copyBtn').textContent = 'Copied!';
+      setTimeout(function(){ document.getElementById('copyBtn').textContent = 'Copy Invitation Code'; }, 2000);
+    }
+
+    function showFallback() {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('status').textContent = 'Get the app to start mining for free.';
+      document.getElementById('playstoreBtn').style.display = 'block';
+      document.getElementById('copyBtn').style.display = 'block';
+    }
+
+    referralCode = getCode();
+
+    // No code = not a valid invite link, redirect to home
+    if (!referralCode) {
+      window.location.replace('/index.html');
+    }
+
+    document.getElementById('codeBox').style.display = 'block';
+    document.getElementById('codeDisplay').textContent = referralCode;
+    try { localStorage.setItem('pendingReferralCode', referralCode); } catch(e){}
+
+    // Try to open the app via custom scheme
+    var deepLink = 'zyntex://ref/' + referralCode;
+
+    window.location.href = deepLink;
+
+    // After 2.5s, if the app didn't open, show Play Store button
+    var fallbackTimer = setTimeout(showFallback, 2500);
+
+    // If user comes back to this page (app opened and returned), clear timer
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) clearTimeout(fallbackTimer);
+    });
+    window.addEventListener('blur', function() { clearTimeout(fallbackTimer); });
+  </script>
+</body>
+</html>
