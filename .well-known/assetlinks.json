@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.zyntex.app",
+    "sha256_cert_fingerprints": [
+      "CB:AD:A7:A3:9C:44:8B:3E:C4:7D:7C:CD:C5:38:8B:42:45:92:0C:0B:D2:3A:77:E2:37:71:6C:5D:84:93:21:22"
+    ]
+  }
+}]
