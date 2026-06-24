@@ -53,70 +53,130 @@
 </div>
 <div class="article">
   <a href="blog.html" class="back-link">← Back to Blog</a>
-  <p>Security is not an afterthought at Zyntex — it's a foundational principle. When you mine ZYM tokens, your balance represents real value that you've earned through time and effort. We take that responsibility seriously. Here's an in-depth look at the security systems we've built to protect your account and your earnings.</p>
+  <p>Security is not an afterthought at Zyntex — it is a foundational principle built into every layer of the platform. When you mine ZYM tokens, your balance represents real value earned through consistent effort and time. We take that responsibility seriously. This comprehensive guide covers the full security architecture protecting your account, how Firebase authentication works, what KYC verification means for you, how to recognize phishing attempts, and the complete best practices checklist every ZYM holder should follow.</p>
 
-  <h2>Account Security</h2>
+  <h2>Overview of ZYM Token Security Architecture</h2>
+  <p>The Zyntex security architecture is built on three interconnected layers: account authentication (who is allowed to access your account), data integrity (ensuring your balance cannot be manipulated), and identity verification (confirming you are a real, unique person before tokens are released).</p>
+  <p>Each layer is designed to be independent. A failure in one layer does not compromise the others. For example, even if an attacker somehow obtained your password, the OTP authentication layer would prevent them from logging in. Even if they bypassed login, Firebase security rules at the database level would prevent any unauthorized balance modifications. This defense-in-depth approach means that compromising your account requires bypassing multiple independent systems simultaneously — which is extremely difficult in practice.</p>
+
+  <h2>How Firebase Authentication Protects Your Account</h2>
+  <p>Zyntex is built on Google Firebase, one of the most robust cloud infrastructure platforms in the world. Firebase Authentication handles the identity management layer of the app, and it comes with enterprise-grade security built in by default.</p>
+  <p>When you create a Zyntex account, Firebase creates a unique User ID (UID) that is tied exclusively to your account. This UID cannot be changed, transferred, or duplicated. Every piece of data associated with your account in Firestore (the database) is linked to this UID. Firebase's security rules then enforce that only your authenticated session can read or write to your specific data — no other user, and no server-side process, can modify your balance without going through the verified authentication chain.</p>
+  <p>Firebase Authentication also protects against common attack vectors like credential stuffing (using leaked passwords from other sites) and session hijacking. Sessions are time-limited and cryptographically signed, meaning stolen session tokens become invalid after a short period.</p>
+
+  <h2>Account Security Features in Detail</h2>
 
   <div class="security-card">
     <div class="sec-icon">📧</div>
-    <div class="sec-body"><h3>Email Verification</h3><p>Every new account must verify their email address before accessing the app. Unverified accounts cannot mine or earn rewards, preventing bot accounts from flooding the network.</p></div>
+    <div class="sec-body"><h3>Email Verification</h3><p>Every new account must verify their email address before accessing the app. An automated verification email is sent immediately upon registration. Clicking the link in that email confirms ownership of the email address and activates full account access. Unverified accounts cannot mine or earn rewards, which prevents throwaway email bot accounts from flooding the network with fake mining activity.</p></div>
   </div>
   <div class="security-card">
     <div class="sec-icon">🔢</div>
-    <div class="sec-body"><h3>OTP Authentication</h3><p>Every login requires a one-time password sent to your registered email. This means even if someone knows your password, they cannot access your account without also controlling your email.</p></div>
+    <div class="sec-body"><h3>OTP Authentication</h3><p>Every login to Zyntex requires a one-time password (OTP) sent to your registered email address. This is effectively two-factor authentication — you need both your password and access to your email inbox to log in. Even if a data breach somewhere else on the internet exposes your password, an attacker still cannot access your Zyntex account without also controlling your email. This single layer stops the vast majority of credential-based attacks.</p></div>
   </div>
   <div class="security-card">
     <div class="sec-icon">🔑</div>
-    <div class="sec-body"><h3>Private Key Backup</h3><p>Users can generate and securely back up a private key for their account. This gives you an additional recovery method that's entirely under your control.</p></div>
+    <div class="sec-body"><h3>Private Key Backup</h3><p>Zyntex users can generate and securely export a private key associated with their account. This key serves as an alternative recovery method entirely under your control. If you ever lose access to your email account, your private key can be used to verify account ownership. Store it somewhere safe — a password manager, an encrypted note, or physically written down in a secure location. Do not store it in plain text on a device connected to the internet.</p></div>
   </div>
   <div class="security-card">
     <div class="sec-icon">📍</div>
-    <div class="sec-body"><h3>Login Activity Monitoring</h3><p>Your profile shows a full history of login activity including device type, location, and timestamp. You can review this anytime and flag suspicious access.</p></div>
+    <div class="sec-body"><h3>Login Activity Monitoring</h3><p>Your Zyntex profile includes a full history of login activity, including device type, approximate location, and timestamp for each session. You can review this history at any time. If you see a login from a device or location you do not recognize, you should immediately change your email password to revoke access and contact support. Reviewing your login history monthly is a simple habit that provides strong early warning of any unauthorized access.</p></div>
   </div>
 
-  <h2>Balance Protection</h2>
-  <p>Your ZYM balance is stored in Firebase Firestore — Google's enterprise-grade cloud database. But storage alone isn't enough. We've implemented hardened security rules that protect your balance at the database level:</p>
+  <h2>Two-Factor Authentication: A Step-by-Step Guide</h2>
+  <p>The OTP system in Zyntex functions as two-factor authentication by default — you do not need to enable it separately. Every login automatically requires both your password and the OTP sent to your email. However, there are steps you can take to make this protection even stronger:</p>
+  <ol>
+    <li><strong>Use a dedicated email address for Zyntex.</strong> An email you use exclusively for this account is harder to compromise because it is not exposed in the data breaches of other services you use.</li>
+    <li><strong>Enable 2FA on your email account itself.</strong> Gmail, Outlook, and most major email providers offer their own two-factor authentication. Enabling this on your email means an attacker must bypass two separate 2FA systems to get into your Zyntex account.</li>
+    <li><strong>Use an authenticator app rather than SMS for your email's 2FA.</strong> SMS-based 2FA can be compromised through SIM swapping attacks. Authenticator apps like Google Authenticator or Authy are significantly more secure.</li>
+    <li><strong>Never save your OTP in a notes app or forward it to anyone.</strong> OTP codes are single-use and time-limited, but they are only secure if you treat them as private.</li>
+    <li><strong>Back up your Zyntex private key immediately after registering.</strong> Do not wait until you need it — do it on day one while you still have easy access to your account.</li>
+  </ol>
 
+  <h2>What KYC Verification Means and Why It Matters</h2>
+  <p>KYC stands for Know Your Customer, and it is a legal and regulatory process that financial services use to verify the identity of their users. In the context of cryptocurrency, KYC has become a standard requirement on virtually every legitimate platform that allows users to withdraw tokens to external wallets.</p>
+  <p>Before any ZYM tokens can be released to an external cryptocurrency wallet, Zyntex users must complete the KYC verification process. This typically involves submitting a government-issued photo ID (such as a passport, national ID card, or driver's license) and in some cases a selfie for liveness verification.</p>
+
+  <h3>Why KYC Exists — The Real Reasons</h3>
+  <p>KYC serves several important purposes that directly benefit legitimate users:</p>
   <ul>
-    <li><strong>Balance can only increase through legitimate mining</strong> — direct manipulation attempts are rejected at the database rule level.</li>
-    <li><strong>Mining rate caps</strong> are enforced server-side — no client can claim an impossibly high mining rate.</li>
-    <li><strong>Transaction records</strong> are immutable once created — every ZYM movement is permanently logged.</li>
-    <li><strong>Withdrawal requests</strong> are reviewed before processing — no automatic outflows without verification.</li>
+    <li><strong>Prevents multi-accounting fraud:</strong> One person creating hundreds of accounts to mine ZYM at scale would be catastrophically harmful to the token's value. KYC ensures each verified identity maps to exactly one account, protecting the earnings of every honest miner.</li>
+    <li><strong>Regulatory compliance:</strong> Many jurisdictions require cryptocurrency platforms to implement KYC as part of anti-money laundering (AML) and counter-terrorism financing (CTF) regulations. Platforms that skip this face legal action and shutdown risks, which would harm all users.</li>
+    <li><strong>Protects honest miners:</strong> If fake accounts mine ZYM fraudulently, the total supply is inflated beyond what was intended, reducing the value of tokens earned by real users. KYC acts as the gate that separates real value from fraud.</li>
+    <li><strong>Enables future exchange listings:</strong> Reputable cryptocurrency exchanges require KYC compliance from platforms before listing their tokens. Completing your KYC not only secures your own withdrawal ability — it contributes to the network's eligibility for exchange listings that would give ZYM real market liquidity.</li>
   </ul>
+  <p>KYC is a sign of legitimacy, not a red flag. Every serious, established cryptocurrency platform — including Binance, Coinbase, Kraken, and all others — requires KYC. Platforms that do not require KYC are the ones that should raise suspicion.</p>
+
+  <h2>How to Recognize Phishing Attempts Targeting Crypto Users</h2>
+  <p>Phishing is the most common attack vector against cryptocurrency users. A phishing attack involves a bad actor impersonating a legitimate platform or person to trick you into revealing your credentials, OTP codes, or private key.</p>
+
+  <h3>Common Phishing Tactics Targeting Zyntex Users</h3>
+  <ul>
+    <li><strong>Fake support accounts on Telegram or WhatsApp:</strong> Scammers create accounts pretending to be Zyntex support staff, often with profile pictures using the Zyntex logo. They reach out to users claiming there is an issue with their account and ask for login credentials or OTP codes. The official Zyntex support will never DM you first on Telegram.</li>
+    <li><strong>Phishing websites:</strong> Fake websites that look identical to the real Zyntex app or website, hosted at domain names like "zyntex-app.com" or "zyntexmining.net." Always verify you are on the correct official URL. Bookmark the real site and use your bookmark instead of clicking links in messages.</li>
+    <li><strong>Fake airdrop announcements:</strong> Messages claiming Zyntex is running a special airdrop or bonus, but only if you send a transaction or enter your private key to "verify your wallet." Real airdrops from Zyntex never require you to send funds or reveal your private key.</li>
+    <li><strong>Clone apps:</strong> Counterfeit apps in third-party app stores or sideloaded APKs that mimic the Zyntex interface but steal your credentials when you log in. Always download Zyntex exclusively from the official Google Play Store.</li>
+  </ul>
+
+  <h3>Red Flags That Indicate a Scam</h3>
+  <ul>
+    <li>Anyone asking for your OTP code — Zyntex staff never need this.</li>
+    <li>Anyone asking for your private key — no legitimate service ever needs your private key.</li>
+    <li>Urgent pressure to act immediately ("your account will be deleted in 24 hours").</li>
+    <li>Requests to send cryptocurrency to "verify" or "unlock" your account.</li>
+    <li>Links to Zyntex sent via unsolicited DMs — always navigate to the site directly.</li>
+    <li>Offers of doubled ZYM or multiplied rewards that seem too good to be true.</li>
+  </ul>
+
+  <h2>Protecting Your Referral Code From Misuse</h2>
+  <p>Your Zyntex referral code is valuable — it is how you build your mining team and earn referral bonuses. But because it is public-facing (you share it widely to recruit), it needs its own security awareness.</p>
+  <p>The most common referral code abuse involves scammers creating accounts using your code, generating a small referral bonus for you (making you think they are real), and then using their new account for fraudulent mining. When those accounts get banned, their referrals may be removed from your team count.</p>
+  <p>The best protection is to be selective about who you share your code with. Focus on sharing with people you genuinely know and who are likely to become real, active miners. Mass-posting your code on random forums might generate sign-ups, but they are less likely to be long-term active miners, and some may be accounts that get removed for fraud. Quality referrals outperform quantity.</p>
+
+  <h2>What Happens If Your Account Is Compromised</h2>
+  <p>If you believe your account has been accessed without authorization, act quickly. The sooner you respond, the less damage occurs. Here is the exact sequence of steps to take:</p>
+  <ol>
+    <li><strong>Immediately change your email account password.</strong> Since all Zyntex logins go through your email, changing your email password revokes any existing sessions and blocks the attacker from generating new OTP codes.</li>
+    <li><strong>Enable 2FA on your email account</strong> if you have not already. Do this before logging back into Zyntex.</li>
+    <li><strong>Log into Zyntex and check your balance and login history.</strong> Document any unauthorized activity with screenshots.</li>
+    <li><strong>Contact Zyntex support</strong> through the official channel (found in the app's settings menu) and report the unauthorized access. Provide your account details and a description of what happened.</li>
+    <li><strong>Review your Security Circle and referral team</strong> for any changes you did not authorize. An attacker who accessed your account may have modified your circle or attempted to transfer referral relationships.</li>
+    <li><strong>Generate a new private key backup</strong> after securing your account, as the old one should be considered potentially compromised.</li>
+  </ol>
+
+  <h2>Security Best Practices Checklist for Every ZYM Holder</h2>
 
   <div class="highlight-box">
-    <p>🛡️ <strong>Important:</strong> Zyntex will never ask for your existing cryptocurrency wallet's private keys. If anyone claiming to be Zyntex asks for this, it is a scam. Your ZYM balance exists entirely within the Zyntex system until you choose to release it through our official process.</p>
+    <p>🛡️ <strong>Important Reminder:</strong> Zyntex will never ask for your existing cryptocurrency wallet's private keys, your email password, or your OTP code. If anyone claiming to be from Zyntex requests any of these, it is a scam. Report it immediately and do not comply.</p>
   </div>
 
-  <h2>KYC Verification</h2>
-  <p>Before any ZYM can be released to an external wallet, users must complete our Know Your Customer (KYC) verification process. KYC serves multiple purposes:</p>
+  <h3>Account Security</h3>
   <ul>
-    <li>Prevents one person from controlling multiple accounts</li>
-    <li>Meets regulatory requirements for financial services</li>
-    <li>Protects the network from fraudulent activity</li>
-    <li>Ensures ZYM tokens are released to verified, legitimate owners</li>
-  </ul>
-  <p>KYC is a standard requirement across legitimate cryptocurrency platforms. It protects both individual users and the integrity of the entire network.</p>
-
-  <h2>Anti-Fraud Systems</h2>
-  <p>We have multiple systems in place to detect and prevent fraudulent activity on the Zyntex network:</p>
-  <ul>
-    <li>Automated detection of suspicious mining patterns</li>
-    <li>Rate limiting on all sensitive operations</li>
-    <li>Firestore security rules that validate every write operation</li>
-    <li>Admin monitoring tools for flagging anomalous accounts</li>
+    <li>Use a strong, unique password for your email account (20+ characters, mixed case, numbers, symbols).</li>
+    <li>Enable 2FA on your email using an authenticator app, not SMS.</li>
+    <li>Back up your Zyntex private key to a secure offline location.</li>
+    <li>Never share your OTP with anyone, ever.</li>
+    <li>Review your login activity in the Zyntex app at least once per month.</li>
+    <li>Log out of the app if you sell or give away your phone.</li>
   </ul>
 
-  <h2>What You Can Do to Stay Secure</h2>
+  <h3>Download and App Safety</h3>
   <ul>
-    <li>Use a strong, unique password for your email account.</li>
-    <li>Never share your OTP code with anyone — Zyntex staff will never ask for it.</li>
-    <li>Back up your private key and store it in a safe place.</li>
-    <li>Regularly check your login activity for any unrecognized sessions.</li>
-    <li>Only download Zyntex from the official Google Play Store listing.</li>
+    <li>Only download Zyntex from the official Google Play Store listing. Verify the developer name matches the official Zyntex developer.</li>
+    <li>Never install APK files from third-party sources, even if someone you trust sends them to you.</li>
+    <li>Keep the app updated — security patches are included in every update.</li>
+    <li>If the app ever asks for unusual permissions (like access to contacts without a stated reason), report it to support before proceeding.</li>
   </ul>
 
-  <p>Your security is a shared responsibility. We provide the infrastructure; you protect your credentials. Together, we keep the Zyntex network safe for everyone.</p>
+  <h3>Phishing and Social Engineering</h3>
+  <ul>
+    <li>Bookmark the official Zyntex website and always use your bookmark — never click links in unsolicited messages.</li>
+    <li>Verify any "Zyntex support" contact is coming through the official in-app support channel.</li>
+    <li>Never send cryptocurrency to any address claiming to be affiliated with Zyntex — this is always a scam.</li>
+    <li>Treat any offer that seems too good to be true (10x your ZYM, special bonus for early action) with maximum skepticism.</li>
+  </ul>
+
+  <p>Security is a shared responsibility. Zyntex provides the infrastructure — Firebase authentication, Firestore security rules, OTP verification, KYC controls, and anti-fraud monitoring. You protect your credentials, your email, and your behavior online. Together, these two layers create a secure environment where your ZYM earnings are safe and the entire network remains trustworthy for everyone.</p>
 
   <div class="cta">
     <h3>Mine With Confidence</h3>
